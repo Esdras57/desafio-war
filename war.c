@@ -15,4 +15,28 @@ struct Territorio
 
 int main()
 {
+    struct Territorio territorio[MAX_TERRITORIOS];
+
+    // Entrada de dados dos Territorios
+
+    printf("====================================\n");
+    printf("----- Cadastro dos Territórios -----\n");
+    printf("====================================\n");
+
+    for (int i = 0; i < MAX_TERRITORIOS; i++)
+    {
+
+        printf("----- Território %d -----\n", i + 1);
+
+        printf("Digite o nome do território: \n");
+        scanf("%s", territorio[i].nome);
+
+        printf("Digite a cor do exercito: \n");
+        scanf("%s", territorio[i].cor);
+
+        printf("Digite o numero de tropas: \n");
+        scanf("%d", &territorio[i].tropas);
+
+        printf("\n");
+    }
 }
