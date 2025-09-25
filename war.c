@@ -39,4 +39,23 @@ int main()
 
         printf("\n");
     }
+
+    // Exibir os dados cadastrados
+
+    printf("====================================\n");
+    printf("----- Lista dos Territórios -----\n");
+    printf("====================================\n");
+
+    for (int i = 0; i < MAX_TERRITORIOS; i++)
+    {
+        printf("Território %d\n:", i + 1);
+        printf("Nome: %s\n", territorio[i].nome);
+        printf("Nome: %s\n", territorio[i].cor);
+        printf("Nome: %d\n", territorio[i].tropas);
+        printf("====================================\n");
+
+        printf("\n");
+    }
+
+    return 0;
 }
