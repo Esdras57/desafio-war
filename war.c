@@ -13,6 +13,15 @@ struct Territorio
     int tropas;
 };
 
+// Limpar Buffer de entrada
+
+void limpaBufferEntrada()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
+
 int main()
 {
     struct Territorio territorio[MAX_TERRITORIOS];
@@ -29,13 +38,18 @@ int main()
         printf("----- Território %d -----\n", i + 1);
 
         printf("Digite o nome do território: \n");
-        scanf("%s", territorio[i].nome);
+        fgets(territorio[i].nome, 20, stdin);
 
         printf("Digite a cor do exercito: \n");
-        scanf("%s", territorio[i].cor);
+        fgets(territorio[i].cor, 10, stdin);
+
+        // Remover quebra de linha
+        territorio[i].nome[strcspn(territorio[i].nome, "\n")] = '\0';
+        territorio[i].cor[strcspn(territorio[i].cor, "\n")] = '\0';
 
         printf("Digite o numero de tropas: \n");
         scanf("%d", &territorio[i].tropas);
+        limpaBufferEntrada();
 
         printf("\n");
     }
@@ -48,10 +62,10 @@ int main()
 
     for (int i = 0; i < MAX_TERRITORIOS; i++)
     {
-        printf("Território %d\n:", i + 1);
+        printf("Território %d:\n", i + 1);
         printf("Nome: %s\n", territorio[i].nome);
-        printf("Nome: %s\n", territorio[i].cor);
-        printf("Nome: %d\n", territorio[i].tropas);
+        printf("Cor: %s\n", territorio[i].cor);
+        printf("Tropas: %d\n", territorio[i].tropas);
         printf("====================================\n");
 
         printf("\n");
