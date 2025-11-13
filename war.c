@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
-// Estrutura (struct)
+// Estrutura dos territorios
 typedef struct
 {
     char nome[30];
-    char cor[10];
+    char cor[20];
     int tropas;
 } Territorio;
 
-// Remover quebra de linha
-
+// Função para remover quebra de linha
 void removerQuebraLinha(char *str)
 {
     str[strcspn(str, "\n")] = '\0';
 }
 
-// Limpar Buffer de entrada
-
+// Função para limpar o buffer de entrada
 void limparBuffer()
 {
     int c;
@@ -28,8 +27,9 @@ void limparBuffer()
 
 int main()
 {
-    Territorio *territorio = NULL;
-    int numTerritorios = 0;
+    Territorio *todosTerritorios = NULL; // ✅ Array para TODOS os territórios
+    int totalTerritorios = 0;            // ✅ Total de territórios (todos)
+    int novosCadastros = 0;              // ✅ Quantos cadastrar agora
     int i, opcao;
 
     do
@@ -37,7 +37,7 @@ int main()
         // Menu de opções
         printf("\n=== WAR ===\n");
         printf("1 - Definir quantidade e cadastrar territórios\n");
-        printf("2 - Listar territórios cadastrados\n");
+        printf("2 - Listar todos os territórios cadastrados\n");
         printf("0 - Sair\n");
         printf("Escolha uma opção: ");
         scanf("%d", &opcao);
@@ -45,72 +45,84 @@ int main()
 
         switch (opcao)
         {
-        case 1: // Liberar memória anterior se existir
-            if (territorio != NULL)
-            {
-                free(territorio);
-            }
-
-            printf("\nDigite a quantidade de itens para cadastrar: ");
-            scanf("%d", &numTerritorios);
+        case 1:
+            printf("\nDigite a quantidade de territórios para cadastrar: ");
+            scanf("%d", &novosCadastros);
             limparBuffer();
 
-            territorio = (Territorio *)malloc(numTerritorios * sizeof(Territorio));
+            // ✅ Expandir o array para incluir os novos territórios
+            todosTerritorios = (Territorio *)realloc(todosTerritorios,
+                                                     (totalTerritorios + novosCadastros) * sizeof(Territorio));
 
-            if (territorio == NULL)
+            if (todosTerritorios == NULL)
             {
                 printf("Erro na alocação de memória!\n");
                 return 1;
             }
-            // Cadastrar territórios
-            for (i = 0; i < numTerritorios; i++)
-            {
-                printf("\n----- Território %d -----\n", i + 1);
 
-                printf("Digite o nome: ");
-                fgets(territorio[i].nome, 30, stdin);
-                removerQuebraLinha(territorio[i].nome);
-                printf("Digite a cor: ");
-                fgets(territorio[i].cor, 10, stdin);
-                removerQuebraLinha(territorio[i].cor);
+            // ✅ Cadastrar os novos territórios
+            for (i = 0; i < novosCadastros; i++)
+            {
+                int indice = totalTerritorios + i; // Índice no array total
+
+                printf("\n----- Território %d -----\n", indice + 1);
+
+                printf("Digite o nome do territorio: ");
+                fgets(todosTerritorios[indice].nome, 30, stdin);
+                removerQuebraLinha(todosTerritorios[indice].nome);
+
+                printf("Digite a cor do territorio: ");
+                fgets(todosTerritorios[indice].cor, 20, stdin);
+                removerQuebraLinha(todosTerritorios[indice].cor);
 
                 printf("Digite o número de tropas: ");
-                scanf("%d", &territorio[i].tropas);
+                scanf("%d", &todosTerritorios[indice].tropas);
                 limparBuffer();
             }
 
-            printf("\n%d territórios cadastrados com sucesso!\n", numTerritorios);
-            break;
+            totalTerritorios += novosCadastros; // ✅ Atualizar total
 
-        case 2:
-
-            if (territorio == NULL || numTerritorios == 0)
+            if (novosCadastros == 1)
             {
-                printf("\nNenhum território cadastrado!\n");
+                printf("\n%d território cadastrado com sucesso!\n", novosCadastros);
             }
             else
             {
-                printf("----- Lista dos Territórios -----\n");
+                printf("\n%d territórios cadastrados com sucesso!\n", novosCadastros);
+            }
 
-                for (int i = 0; i < numTerritorios; i++)
+            printf("Total de territórios: %d\n", totalTerritorios);
+            break;
+
+        case 2:
+            if (totalTerritorios == 0)
+            {
+                printf("\nNenhum território cadastrado ainda!\n");
+            }
+            else
+            {
+                printf("\n----- Lista de TODOS os Territórios -----\n");
+
+                // ✅ Mostrar TODOS os territórios
+                for (int i = 0; i < totalTerritorios; i++)
                 {
                     printf("Território %d:\n", i + 1);
-                    printf("Nome: %s\n", territorio[i].nome);
-                    printf("Cor: %s\n", territorio[i].cor);
-                    printf("Tropas: %d\n", territorio[i].tropas);
+                    printf("Nome: %s\n", todosTerritorios[i].nome);
+                    printf("Cor: %s\n", todosTerritorios[i].cor);
+                    printf("Tropas: %d\n", todosTerritorios[i].tropas);
                     printf("====================================\n");
                 }
+
+                printf("\nTotal: %d territórios cadastrados.\n", totalTerritorios);
             }
             break;
 
         case 0:
-
             printf("\nSaindo do sistema...\n");
             break;
 
         default:
-
-            printf("\n Opção inválida! Tente novamente.\n");
+            printf("\nOpção inválida! Tente novamente.\n");
             break;
         }
 
@@ -124,9 +136,9 @@ int main()
     } while (opcao != 0);
 
     // Liberar memória
-    if (territorio != NULL)
+    if (todosTerritorios != NULL)
     {
-        free(territorio);
+        free(todosTerritorios);
     }
 
     return 0;
