@@ -6,12 +6,12 @@
 #define MAX_TERRITORIOS 5
 
 // Estrutura (struct)
-struct Territorio
+typedef struct
 {
     char nome[30];
     char cor[10];
     int tropas;
-};
+} Territorio;
 
 // Limpar Buffer de entrada
 
@@ -24,7 +24,7 @@ void limpaBufferEntrada()
 
 int main()
 {
-    struct Territorio territorio[MAX_TERRITORIOS];
+    Territorio territorio[MAX_TERRITORIOS];
 
     // Entrada de dados dos Territorios
 
