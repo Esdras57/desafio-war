@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // Constante Global
@@ -12,6 +13,13 @@ typedef struct
     char cor[10];
     int tropas;
 } Territorio;
+
+// Remover quebra de linha
+
+void removerQuebraLinha(char *str)
+{
+    str[strcspn(str, "\n")] = '\0';
+}
 
 // Limpar Buffer de entrada
 
@@ -37,17 +45,15 @@ int main()
 
         printf("----- Território %d -----\n", i + 1);
 
-        printf("Digite o nome do território: \n");
-        fgets(territorio[i].nome, 20, stdin);
+        printf("Digite o nome do território: ");
+        fgets(territorio[i].nome, 30, stdin);
+        removerQuebraLinha(territorio[i].nome);
 
-        printf("Digite a cor do exercito: \n");
+        printf("Digite a cor do exercito: ");
         fgets(territorio[i].cor, 10, stdin);
+        removerQuebraLinha(territorio[i].cor);
 
-        // Remover quebra de linha
-        territorio[i].nome[strcspn(territorio[i].nome, "\n")] = '\0';
-        territorio[i].cor[strcspn(territorio[i].cor, "\n")] = '\0';
-
-        printf("Digite o numero de tropas: \n");
+        printf("Digite o numero de tropas: ");
         scanf("%d", &territorio[i].tropas);
         limpaBufferEntrada();
 
@@ -67,8 +73,6 @@ int main()
         printf("Cor: %s\n", territorio[i].cor);
         printf("Tropas: %d\n", territorio[i].tropas);
         printf("====================================\n");
-
-        printf("\n");
     }
 
     return 0;
