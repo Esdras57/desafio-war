@@ -71,7 +71,7 @@ int main()
                 fgets(territorio[i].nome, 30, stdin);
                 removerQuebraLinha(territorio[i].nome);
                 printf("Digite a cor: ");
-                fgets(territorio[i].cor, 20, stdin);
+                fgets(territorio[i].cor, 10, stdin);
                 removerQuebraLinha(territorio[i].cor);
 
                 printf("Digite o número de tropas: ");
