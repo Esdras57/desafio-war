@@ -20,3 +20,19 @@ void liberarMemoria(Territorio *mapa)
         free(mapa);
     }
 }
+
+// Função para remover a quebra de linha
+
+void removerQuebraLinha(char *str)
+{
+    str[strcspn(str, "\n")] = '\0';
+}
+
+// Função para limpar o buffer de entrada
+
+void limparBufferEntrada()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
