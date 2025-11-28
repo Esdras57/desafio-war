@@ -36,3 +36,13 @@ void limparBufferEntrada()
     while ((c = getchar()) != '\n' && c != EOF)
         ;
 }
+
+int main()
+{
+
+    Territorio *territorio = NULL; // Ponteiro para array dinâmico de territórios
+    int totalTerritorios = 0;      // Contador do número total de territórios
+    int opcao, i;                  // opcao: escolha do menu; i: variável de controle dos loops
+
+    return 0;
+}
