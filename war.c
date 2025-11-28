@@ -10,3 +10,13 @@ typedef struct
     char cor[10];
     int tropas;
 } Territorio;
+
+// Função para liberar a memória
+
+void liberarMemoria(Territorio *mapa)
+{
+    if (mapa != NULL)
+    {
+        free(mapa);
+    }
+}
