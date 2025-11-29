@@ -146,13 +146,42 @@ int main()
                 scanf("%d", &atacante);
                 limparBufferEntrada();
 
-                printf("Escolha o território defensor (1 a %d, para sair ): ", totalTerritorios);
+                printf("Escolha o território defensor (1 a %d, para sair): ", totalTerritorios);
                 scanf("%d", &defensor);
                 limparBufferEntrada();
+
+                // Validações
+                if (atacante == 0 || defensor == 0)
+                {
+                    printf("Saindo...\n");
+                    break;
+                }
+                else if (atacante == defensor)
+                {
+                    printf("Não é possível atacar o próprio território!\n");
+                    break;
+                }
+                else if (territorios[atacante - 1].tropas < 2)
+                {
+                    printf("Território atacante precisa ter pelo menos 2 tropas!\n");
+                    break;
+                }
+                else if (strcmp(territorios[atacante - 1].cor, territorios[defensor - 1].cor) == 0)
+                {
+                    printf("Não é possível atacar territórios do mesmo exército!\n");
+                    break;
+                }
+                else
+                {
+                    printf("\n-=-=-=- ATAQUE -=-=-=-");
+                    printf("Atacante: %s (%s) - %d tropas\n", territorios[atacante - 1].nome, territorios[atacante - 1].cor, territorios[atacante - 1].tropas);
+                    printf("Defensor: %s (%s) - %d tropas\n", territorios[defensor - 1].nome, territorios[defensor - 1].nome, territorios[defensor - 1].tropas);
+
+                    atacar(&territorios[atacante - 1], &territorios[defensor - 1]);
+                }
+                break;
             }
         } while (opcao != 0);
-
-        //
 
         return 0;
     }
