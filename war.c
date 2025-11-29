@@ -81,9 +81,22 @@ int main()
             scanf("%d", &territorios[i].tropas);
             limparBufferEntrada();
         }
+
+        // Menu
+        do
+        {
+            printf("\n-=-=-=- WAR -=-=-=-\n");
+            printf("1 - Mostrar territórios\n");
+            printf("2 - Iniciar ataque\n");
+            printf("0 - Sair\n");
+
+            printf("Escolha uma opção: ");
+            scanf("%d", opcao);
+            limparBufferEntrada();
+
+        } while (opcao != 0);
+
+        //
+
+        return 0;
     }
-
-    //
-
-    return 0;
-}
