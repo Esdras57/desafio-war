@@ -186,8 +186,14 @@ int main()
                 break;
 
             default:
-                printf("Opção inválida!");
+                printf("Opção inválida!\n");
                 break;
+            }
+
+            if (opcao != 0)
+            {
+                printf("Pressione ENTER para continuar...\n");
+                getchar();
             }
         } while (opcao != 0);
 
