@@ -198,7 +198,7 @@ int main()
 
             if (opcao != 0)
             {
-                printf("Pressione ENTER para continuar...\n");
+                printf("\nPressione ENTER para continuar...\n");
                 getchar();
             }
         } while (opcao != 0);
