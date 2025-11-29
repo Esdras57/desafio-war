@@ -40,14 +40,31 @@ void limparBufferEntrada()
 int main()
 {
 
-    Territorio *territorio = NULL; // Ponteiro para array dinâmico de territórios
-    int totalTerritorios = 0;      // Contador do número total de territórios
-    int opcao, i;                  // opcao: escolha do menu; i: variável de controle dos loops
+    Territorio *territorios = NULL; // Ponteiro para array dinâmico de territórios
+    int totalTerritorios = 0;       // Contador do número total de territórios
+    int opcao, i;                   // opcao: escolha do menu; i: variável de controle dos loops
 
+    // Definir a quantidade de territórios
     printf("-=-=-=- CADASTRO DE TERRITÓRIOS -=-=-=-\n");
     printf("Digite a quantidade: ");
     printf("%d", &totalTerritorios);
     limparBufferEntrada();
+
+    territorios = (Territorio *)malloc(totalTerritorios * sizeof(Territorio));
+
+    // Verificação de erro na alocação de memória
+    if (territorios == NULL)
+    {
+        printf("Erro na alocação de memória!\n");
+        return 1;
+        // Verifição de quantidade minima para o cadastro
+    }
+    else if (territorios < 2)
+    {
+        printf("Quantidade de territórios insuficiente! São necessários pelo menos 2 territórios.\n");
+    }
+
+    //
 
     return 0;
 }
