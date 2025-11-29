@@ -70,6 +70,7 @@ void limparBufferEntrada()
 
 int main()
 {
+    srand(time(NULL));
 
     Territorio *territorios = NULL; // Ponteiro para array dinâmico de territórios
     int totalTerritorios = 0;       // Contador do número total de territórios
