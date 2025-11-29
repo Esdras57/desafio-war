@@ -179,7 +179,7 @@ int main()
                 }
                 else
                 {
-                    printf("\n-=-=-=- ATAQUE -=-=-=-");
+                    printf("\n-=-=-=- ATAQUE -=-=-=-\n");
                     printf("Atacante: %s (%s) - %d tropas\n", territorios[atacante - 1].nome, territorios[atacante - 1].cor, territorios[atacante - 1].tropas);
                     printf("Defensor: %s (%s) - %d tropas\n", territorios[defensor - 1].nome, territorios[defensor - 1].nome, territorios[defensor - 1].tropas);
 
