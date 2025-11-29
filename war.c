@@ -133,6 +133,17 @@ int main()
                     printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].cor);
                 }
                 break;
+
+            case 2: // Fase de ataque
+                int atacante, defensor;
+
+                printf("Escolha o território atacante (1 - %d): ", totalTerritorios);
+                scanf("%d", &atacante);
+                limparBufferEntrada();
+
+                printf("Escolha o território defensor (1 - %d): ", totalTerritorios);
+                scanf("%d", &defensor);
+                limparBufferEntrada();
             }
         } while (opcao != 0);
 
