@@ -44,5 +44,10 @@ int main()
     int totalTerritorios = 0;      // Contador do número total de territórios
     int opcao, i;                  // opcao: escolha do menu; i: variável de controle dos loops
 
+    printf("-=-=-=- CADASTRO DE TERRITÓRIOS -=-=-=-\n");
+    printf("Digite a quantidade: ");
+    printf("%d", &totalTerritorios);
+    limparBufferEntrada();
+
     return 0;
 }
