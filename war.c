@@ -184,6 +184,10 @@ int main()
             case 0: // Sair
                 printf("Saindo...\n");
                 break;
+
+            default:
+                printf("Opção inválida!");
+                break;
             }
         } while (opcao != 0);
 
