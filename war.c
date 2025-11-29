@@ -122,7 +122,7 @@ int main()
             printf("0 - Sair\n");
 
             printf("Escolha uma opção: ");
-            scanf("%d", opcao);
+            scanf("%d", &opcao);
             limparBufferEntrada();
 
             switch (opcao)
@@ -130,14 +130,14 @@ int main()
             case 1: // Lista de territórios
                 for (i = 0; i < totalTerritorios; i++)
                 {
-                    printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].cor);
+                    printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].tropas);
                 }
                 break;
 
             case 2: // Fase de ataque
                 for (i = 0; i < totalTerritorios; i++)
                 {
-                    printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].cor);
+                    printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].tropas);
                 }
 
                 int atacante, defensor;
