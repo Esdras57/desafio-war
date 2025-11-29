@@ -94,6 +94,15 @@ int main()
             scanf("%d", opcao);
             limparBufferEntrada();
 
+            switch (opcao)
+            {
+            case 1: // Lista de territórios
+                for (i = 0; i < totalTerritorios; i++)
+                {
+                    printf("%d. %s (Exército %s, Tropas: %d)\n", i + 1, territorios[i].nome, territorios[i].cor, territorios[i].cor);
+                }
+                break;
+            }
         } while (opcao != 0);
 
         //
