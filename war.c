@@ -56,6 +56,7 @@ int main()
     if (territorios == NULL)
     {
         printf("Erro na alocação de memória!\n");
+        liberarMemoria(territorios);
         return 1;
     }
     else if (totalTerritorios < 2) // Verifição de quantidade minima de territórios para o cadastro
