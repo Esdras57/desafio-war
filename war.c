@@ -180,6 +180,10 @@ int main()
                     atacar(&territorios[atacante - 1], &territorios[defensor - 1]);
                 }
                 break;
+
+            case 0: // Sair
+                printf("Saindo...\n");
+                break;
             }
         } while (opcao != 0);
 
