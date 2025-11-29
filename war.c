@@ -146,12 +146,18 @@ int main()
                 scanf("%d", &atacante);
                 limparBufferEntrada();
 
+                if (atacante == 0)
+                {
+                    printf("Saindo...\n");
+                    break;
+                }
+
                 printf("Escolha o território defensor (1 a %d, para sair): ", totalTerritorios);
                 scanf("%d", &defensor);
                 limparBufferEntrada();
 
                 // Validações
-                if (atacante == 0 || defensor == 0)
+                if (defensor == 0)
                 {
                     printf("Saindo...\n");
                     break;
