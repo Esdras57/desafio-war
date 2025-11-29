@@ -76,7 +76,7 @@ int main()
             fgets(territorios[i].cor, 10, stdin);
             removerQuebraLinha(territorios[i].cor);
 
-            printf("Digite a quantidade de tropas: \n");
+            printf("Digite a quantidade de tropas: ");
             scanf("%d", &territorios[i].tropas);
             limparBufferEntrada();
         }
