@@ -197,6 +197,8 @@ int main()
             }
         } while (opcao != 0);
 
+        liberarMemoria(territorios);
+
         return 0;
     }
 }
