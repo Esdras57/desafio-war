@@ -18,7 +18,7 @@ void atacar(Territorio *atacante, Territorio *defensor)
     int dadoAtacante = rand() % 6 + 1;
     int dadoDefensor = rand() % 6 + 1;
 
-    printf("Dados:\n");
+    printf("\nDados:\n");
     printf("Atacante tirou %d, Defensor tirou %d\n", dadoAtacante, dadoDefensor);
 
     if (dadoAtacante > dadoDefensor) // Vitória do território atacante
