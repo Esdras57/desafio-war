@@ -57,11 +57,29 @@ int main()
     {
         printf("Erro na alocação de memória!\n");
         return 1;
-        // Verifição de quantidade minima para o cadastro
     }
-    else if (territorios < 2)
+    else if (territorios < 2) // Verifição de quantidade minima de territórios para o cadastro
     {
         printf("Quantidade de territórios insuficiente! São necessários pelo menos 2 territórios.\n");
+    }
+    else // Cadastro de territórios
+    {
+        for (i = 0; i < totalTerritorios; i++)
+        {
+            printf("\n-=-=-=- TERRITÓRIO %d -=-=-=-\n", i + 1);
+
+            printf("Digite o nome: ");
+            fgets(territorios[i].nome, 30, stdin);
+            removerQuebraLinha(territorios[i].nome);
+
+            printf("Digite a cor: ");
+            fgets(territorios[i].cor, 10, stdin);
+            removerQuebraLinha(territorios[i].cor);
+
+            printf("Digite a quantidade de tropas: \n");
+            scanf("%d", &territorios[i].tropas);
+            limparBufferEntrada();
+        }
     }
 
     //
