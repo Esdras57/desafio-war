@@ -47,7 +47,7 @@ int main()
     // Definir a quantidade de territórios
     printf("-=-=-=- CADASTRO DE TERRITÓRIOS -=-=-=-\n");
     printf("Digite a quantidade: ");
-    printf("%d", &totalTerritorios);
+    scanf("%d", &totalTerritorios);
     limparBufferEntrada();
 
     territorios = (Territorio *)malloc(totalTerritorios * sizeof(Territorio));
@@ -58,7 +58,7 @@ int main()
         printf("Erro na alocação de memória!\n");
         return 1;
     }
-    else if (territorios < 2) // Verifição de quantidade minima de territórios para o cadastro
+    else if (totalTerritorios < 2) // Verifição de quantidade minima de territórios para o cadastro
     {
         printf("Quantidade de territórios insuficiente! São necessários pelo menos 2 territórios.\n");
     }
