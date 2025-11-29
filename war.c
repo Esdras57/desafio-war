@@ -142,7 +142,7 @@ int main()
 
                 int atacante, defensor;
 
-                printf("Escolha o território atacante (1 a %d, ou 0 para sair): ", totalTerritorios);
+                printf("Escolha o território atacante (1 a %d ou 0 para sair): ", totalTerritorios);
                 scanf("%d", &atacante);
                 limparBufferEntrada();
 
@@ -152,7 +152,7 @@ int main()
                     break;
                 }
 
-                printf("Escolha o território defensor (1 a %d, para sair): ", totalTerritorios);
+                printf("Escolha o território defensor (1 a %d ou 0 para sair): ", totalTerritorios);
                 scanf("%d", &defensor);
                 limparBufferEntrada();
 
