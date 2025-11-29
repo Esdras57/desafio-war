@@ -137,11 +137,11 @@ int main()
             case 2: // Fase de ataque
                 int atacante, defensor;
 
-                printf("Escolha o território atacante (1 - %d): ", totalTerritorios);
+                printf("Escolha o território atacante (1 a %d, ou 0 para sair): ", totalTerritorios);
                 scanf("%d", &atacante);
                 limparBufferEntrada();
 
-                printf("Escolha o território defensor (1 - %d): ", totalTerritorios);
+                printf("Escolha o território defensor (1 a %d, para sair ): ", totalTerritorios);
                 scanf("%d", &defensor);
                 limparBufferEntrada();
             }
