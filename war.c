@@ -20,6 +20,26 @@ void atacar(Territorio *atacante, Territorio *defensor)
 
     printf("Dados:\n");
     printf("Atacante tirou %d, Defensor tirou %d\n", dadoAtacante, dadoDefensor);
+
+    if (dadoAtacante > dadoDefensor) // Vitória do território atacante
+    {
+        printf("Atacante venceu!\n");
+        printf("Exército %s conquistou %s!\n", atacante->cor, defensor->nome);
+
+        strcpy(defensor->cor, atacante->cor); // Alterar a cor do território conquistado
+
+        // Transferência de tropas
+        int tropasTransferidas = atacante->tropas / 2;
+        defensor->tropas = tropasTransferidas;
+
+        printf("Tropas transferidas: %d\n", tropasTransferidas);
+    }
+    else // Vitória do território defensor
+    {
+        printf("Defensor venceu!\n");
+        atacante->tropas--;
+        printf("%s perdeu 1 tropa\n", atacante->nome);
+    }
 }
 
 // Função para liberar a memória
