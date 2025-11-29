@@ -11,6 +11,17 @@ typedef struct
     int tropas;
 } Territorio;
 
+// Função para simular ataque
+
+void atacar(Territorio *atacante, Territorio *defensor)
+{
+    int dadoAtacante = rand() % 6 + 1;
+    int dadoDefensor = rand() % 6 + 1;
+
+    printf("Dados:\n");
+    printf("Atacante tirou %d, Defensor tirou %d\n", dadoAtacante, dadoDefensor);
+}
+
 // Função para liberar a memória
 
 void liberarMemoria(Territorio *mapa)
@@ -109,3 +120,4 @@ int main()
 
         return 0;
     }
+}
